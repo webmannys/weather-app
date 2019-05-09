@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>{{title}}</h1>
+	
+	<div class="container">
+	<fieldset>
+		<form action="/" method="post">
+			<input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+			<input type="submit" class="ghost-button" value="Get Temperature">
+		</form>
+		
+		<p>Current temperature: {{temp}}</p>
+	</fieldset>
+</div>
+		
+{% endblock %}
