@@ -5,7 +5,7 @@ var apiKey = '3b06482364a722da5644982bf3f788dc';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Weather App'});
+  res.render('index', {title: 'Weather App', city: null, temp: null});
 });
 
 /* POST home page. */
@@ -22,8 +22,7 @@ router.post('/', function (req, res, next) {
         res.render('index', {weather: null, error: 'Error, please try again'});
       } else {
 				console.log(weather);
-				// let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-        res.render('index', {title: 'Weather App', temp: weather.main.temp, error: null});
+        res.render('index', {title: 'Weather App', city: weather.name, temp: weather.main.temp});
       }
     }
   });
