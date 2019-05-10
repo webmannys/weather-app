@@ -9,14 +9,36 @@
 			<input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
 			<input type="submit" class="ghost-button" value="Get Temperature">
 		</form>
-
-		{% if city is not null %}
-				<p>City: {{city}}</p>
-		{% endif %}
 		
-		{% if temp is not null %}
-				<p>Current temperature: {{temp}}</p>
+		<p>
+		{% if city is not null %}
+				City: {{city}}
 		{% endif %}
+		<br />
+		{% if temp is not null %}
+				Current temperature: {{temp}}F
+		{% endif %}
+		<br />
+		{% if temp_min is not null %}
+				Minimum temperature: {{temp_min}}F
+		{% endif %}
+		<br />
+		{% if temp is not null %}
+				Maximum temperature: {{temp_max}}F
+		{% endif %}
+		<br />
+		{% if humidity is not null %}
+				Humidity: {{humidity}}
+		{% endif %}
+		<br />
+		{% if sunrise is not null %}
+				Sunrise: {{sunrise}}
+		{% endif %}
+		<br />
+		{% if sunset is not null %}
+				Sunset: {{sunset}}
+		{% endif %}
+		</p>
 
 	</fieldset>
 </div>
