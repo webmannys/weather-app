@@ -15,6 +15,10 @@
 				City: {{city}}
 		{% endif %}
 		<br />
+		{% if conditions is not null %}
+				Conditions: {{conditions}}
+		{% endif %}
+		<br />
 		{% if temp is not null %}
 				Current temperature: {{temp}}F
 		{% endif %}
