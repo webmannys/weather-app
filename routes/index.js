@@ -3,6 +3,8 @@ var router = express.Router();
 var request = require('request');
 var titleText = 'Weather App';
 var apiKey = '3b06482364a722da5644982bf3f788dc';
+//Regular expression used to see if input field is a zipcode.
+var zipcheck = /^[0-9]{5}$/;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,8 +13,13 @@ router.get('/', function(req, res, next) {
 
 /* POST home page. */
 router.post('/', function (req, res, next) {
-  let city = req.body.city;
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
+  let zipcity = req.body.zipcity;
+
+	let url = `http://api.openweathermap.org/data/2.5/weather?q=${zipcity}&units=imperial&appid=${apiKey}`;
+		
+	if(zipcheck.test(zipcity) == true) {
+		url = `http://api.openweathermap.org/data/2.5/weather?zip=${zipcity}&units=imperial&appid=${apiKey}`;
+	}
 
   request(url, function (err, response, body) {
     if(err){
@@ -22,7 +29,6 @@ router.post('/', function (req, res, next) {
       if(weather.main == undefined){
         res.render('index', {weather: null, error: 'Error, please try again'});
       } else {
-				console.log(weather);
         res.render('index', {title: titleText, city: weather.name, conditions: weather.weather[0].main,  temp: weather.main.temp, temp_min: weather.main.temp_min, temp_max: weather.main.temp_max, humidity: weather.main.humidity, sunrise: convert_timestamp(weather.sys.sunrise), sunset: convert_timestamp(weather.sys.sunset)});
       }
     }
