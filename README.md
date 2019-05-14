@@ -3,6 +3,11 @@ Used express generator to create an application skeleton using the twig template
 
 Referenced: https://codeburst.io/build-a-weather-website-in-30-minutes-with-node-js-express-openweather-a317f904897b to incorporate into the structure.
 
+Added aditional features from the above example:<br />
+-Added the ability to search either by city name or zip code using the same field.<br />
+-Added additional data coming from the API.<br />
+-Converted the unix timestamp for sunrise/sunset to human readable form.
+
 ### Installing
 Install node.js if not currently installed: https://nodejs.org/en/<br />
 Copy or clone the project into a folder<br />
