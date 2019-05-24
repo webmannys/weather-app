@@ -8,6 +8,8 @@ Added aditional features from the above example:<br />
 -Added additional data coming from the API.<br />
 -Converted the unix timestamp for sunrise/sunset to human readable form.
 
+Live Demo: https://webmannys-weather-app.herokuapp.com/
+
 ### Installing
 Install node.js if not currently installed: https://nodejs.org/en/<br />
 Copy or clone the project into a folder<br />
